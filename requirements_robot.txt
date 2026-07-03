@@ -1,0 +1,5 @@
+# robot-agent (Jetson 端语音采集/STT/TTS)
+websockets>=12,<14
+openai>=1.0,<2.0
+pyaudio>=0.2.14
+edge-tts>=6.1
