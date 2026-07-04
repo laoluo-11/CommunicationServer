@@ -34,7 +34,7 @@ class ChatClient:
         if not self._ws:
             await self.connect()
 
-        await self._ws.send(json.dumps({"type": "chat", "text": text}))
+        await self._ws.send(json.dumps({"type": "chat", "text": text}, ensure_ascii=False))
         full_text = ""
 
         async for raw in self._ws:
@@ -54,7 +54,7 @@ class ChatClient:
         if not self._ws:
             await self.connect()
 
-        await self._ws.send(json.dumps({"type": "chat", "text": text}))
+        await self._ws.send(json.dumps({"type": "chat", "text": text}, ensure_ascii=False))
 
         async for raw in self._ws:
             msg = json.loads(raw)
@@ -69,7 +69,7 @@ class ChatClient:
     async def reset(self) -> None:
         if not self._ws:
             await self.connect()
-        await self._ws.send(json.dumps({"type": "reset"}))
+        await self._ws.send(json.dumps({"type": "reset"}, ensure_ascii=False))
 
 
 # Alias for friendlier name
